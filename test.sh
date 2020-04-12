@@ -4,4 +4,15 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-docker run --rm -i -t --memory="4096m" -p 25565:25565 hnc-minecraft-tekkit:latest bash
+source ./settings.sh
+
+docker run --rm -i -t \
+	-e CONTAINER_NAME=${CONTAINER_NAME} \
+	-e MEMORY_MAX=${MEMORY_MAX} \
+	-e MEMORY_INIT=${MEMORY_INIT} \
+	--memory=${MEMORY_MAX} \
+	--memory-swap=${MEMORY_MAX} \
+	--memory-swappiness="0" \
+	-p ${PORT}:25565 \
+	${IMAGE_NAME} bash
+

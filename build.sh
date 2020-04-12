@@ -4,4 +4,8 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 
-docker build --force-rm --rm --tag hnc-minecraft-tekkit:latest .
+source ./settings.sh
+
+docker rmi ${IMAGE_NAME}
+docker build --force-rm --rm --tag ${IMAGE_NAME} .
+
