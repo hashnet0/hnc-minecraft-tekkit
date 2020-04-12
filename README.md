@@ -1,4 +1,4 @@
-# HashNet Minecraft Tekkit Classic Docker
+# HashNet Container for Minecraft Tekkit Classic
 
 This Docker image generates fully packaged Minecraft Tekkit Classic containers for production use.
 
