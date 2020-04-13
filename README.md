@@ -9,19 +9,15 @@ The following dependencies will automatically be built in the container:
 
 ### 1. Configure image
 
-Configure the Minecraft Tekkit Classic server settings in the `server/` directory, these files will replace the files within the official server archive, useful for config files and plugins.
+Configure the Minecraft Tekkit Classic server settings in the `server/` directory, these files will replace the files within the official server archive, useful for config files and plugins. You should also look at `settings.sh` for container configuration.
 
 ### 2. Build the image
 
-Run the `build.sh` file to generate the Docker image `hnc-minecraft-tekkit`.
+Run the `build.sh` file to generate the Docker image specified in `settings.sh`.
 
 ### 2. Deploy the container
 
-To spawn a temporary container run `test.sh`. The server contents is located in `/root/`.
+To spawn a temporary container run `test.sh`. The server contents is located in `/srv/`.
 
-You can start the temporary container's server by executing `./start.sh` in `/root/` and the server will automatically generate any missing configuration files and should be accessible on port 25565.
-
-To spawn a dedicated container you should configure the `run.sh` script to use
-the proper port to port-forward and volume mounting. By default the container
-will mount to `/srv/minecraft/tekkit_classic/`.
+To spawn a persistent container execute `run.sh` which will utilize the configuration settings in `settings.sh`.
 

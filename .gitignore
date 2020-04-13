@@ -9,5 +9,3 @@ tmp/
 # Ignore general configs
 server/*
 !server/start.sh
-!server/start-detatched.sh
-!server/stop.sh
